@@ -212,3 +212,48 @@ function crearFuncion() {
 
 var nuevaFuncion = crearFuncion();
 nuevaFuncion(usuario.user);
+
+//Funciones de primera clase
+//Las funciones son objetos
+function aFuncion() {
+    console.log("Funcion a");
+}
+aFuncion();
+aFuncion.name = "Luis";
+aFuncion.apply = "Luis";
+console.log(aFuncion.name);
+console.log(aFuncion.apply);
+
+//Metodos y objetos this
+var carro = {
+    nombre: "Ferrari",
+    autor: "Elon Musk",
+    mostrarNombre: function () {
+        console.log(this.nombre);
+    },
+    modelo: {
+        anio: "2019",
+        getModelo: function () {
+            var self = this;
+            console.log(self);
+            console.log(self.anio);
+        }
+    }
+}
+persona.nombre = "Tesla";
+carro.mostrarNombre();
+carro.modelo.getModelo();
+
+//Palabra reservada new
+function luisFuncion() {
+    this.edad = "21";
+    this.apellido = "Arana";
+    this.saludar = function () {
+        return "Hola gente.";
+    }
+}
+var luis = luisFuncion();
+console.log(luis);
+var luis = new luisFuncion();
+console.log(luis);
+console.log(luis.saludar());

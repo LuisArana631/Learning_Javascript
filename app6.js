@@ -217,11 +217,11 @@ console.log(boolTrue);
 console.log(boolFalse);
 console.log(booleano);
 
-if(booleano){
+if (booleano) {
     console.log("Me imrimi!!");
 }
 
-if(boolFalse){
+if (boolFalse) {
     console.log("Me imrimi!!x2");
 }
 
@@ -239,9 +239,60 @@ console.log("letra esta en: ", indice);
 var nombreSplit = objString.substr(0, objString.indexOf(" "));
 console.log(nombreSplit);
 
+//------Objeto date-----
+var hoy = new Date();
+var fechaMili = new Date(1575122362330);
+var fechaFija = new Date(1998, 8, 21, 23, 15, 45, 30);
+console.log(hoy);
+console.log(fechaMili);
+console.log(fechaFija);
+console.log(hoy.getFullYear());
+console.log(hoy.getDay());
+console.log(hoy.getHours());
+console.log(hoy.getMilliseconds());
+console.log(hoy.getMonth());
+console.log(hoy.getTime());
 
+var inicio = new Date();
+for (var i = 0; i < 5000; i++) {
+    console.log("Contando");
+}
+var fin = new Date();
 
+var timeCompleto = fin.getTime() - inicio.getTime();
+console.log(timeCompleto / 1000, "segundos");
 
+//-----Operaciones con fechas-----
+var fecha = new Date();
+Date.prototype.sumarDias = function (dias) {
+    this.setDate(fecha.getDate() + dias);
+    return this;
+}
+
+Date.prototype.sumarAnios = function (anios) {
+    this.setFullYear(fecha.getFullYear() + anios);
+    return this;
+}
+
+console.log(fecha);
+console.log(fecha.sumarDias(2));
+console.log(fecha.sumarAnios(5));
+
+//-----Objeto math-----
+var PI = Math.PI;
+var E = Math.E;
+
+var num1 = 10.4578931974;
+//Redondear sin decimales
+console.log(Math.round(num1 * 100) / 100);
+console.log(Math.round(PI));
+//Redondear con otro metodo
+console.log(Math.floor(num1));
+//Random
+function randomEntre(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+console.log(randomEntre(1, 10));
 
 
 
